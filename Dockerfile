@@ -7,6 +7,8 @@ WORKDIR /app
 # Copia os arquivos do projeto para o contêiner
 COPY requirements.txt requirements.txt
 COPY app.py app.py
+COPY pipeline_0.py pipeline_0.py
+COPY duck.db duck.db
 
 # Instala as dependências do Python
 RUN pip install --no-cache-dir -r requirements.txt
