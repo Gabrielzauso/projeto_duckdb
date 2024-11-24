@@ -5,13 +5,13 @@ FROM python:3.12
 WORKDIR /app
 
 # Copia os arquivos do projeto para o contêiner
-COPY requirements.txt requirements.txt
-COPY app.py app.py
-COPY pipeline_0.py pipeline_0.py
-COPY pasta_gdown ./pasta_gdown
+COPY . /app
+
 
 # Instala as dependências do Python e seta o .env
-RUN pip install --no-cache-dir -r requirements.txt --env-file .env
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY .env /app/.env
 
 # Expõe a porta usada pelo Streamlit
 EXPOSE 8501
